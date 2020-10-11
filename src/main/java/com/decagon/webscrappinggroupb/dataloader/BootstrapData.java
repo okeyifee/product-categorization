@@ -2,7 +2,6 @@ package com.decagon.webscrappinggroupb.dataloader;
 
 
 import com.decagon.webscrappinggroupb.service.ProductService;
-import com.decagon.webscrappinggroupb.service.ScraperImpl.AlikayNaturalsScrapper;
 import com.decagon.webscrappinggroupb.util.ScraperRun;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +23,7 @@ public class BootstrapData{
 //    private final Environment environment;
     private final ScraperRun scraperRun;
 
-    private final Logger logger = LoggerFactory.getLogger(AlikayNaturalsScrapper.class);
+    private final Logger logger = LoggerFactory.getLogger(BootstrapData.class);
 //
 //    @Autowired
 //    public BootstrapData(QuestionRepository questionRepository, Environment environment) {

@@ -18,59 +18,60 @@ public class ScraperRun {
     private final Logger logger = LoggerFactory.getLogger(ScraperRun.class);
 
 
-    AlikayNaturalsScrapper alikayNaturalsScrapper;
-    AubreyorganicsScrapper aubreyorganicsScrapper;
-    BriogeohairScrapper briogeohairScrapper;
-    UncleFunkyDaughterScrapper uncleFunkyDaughterScrapper;
-    CurlSmithMainScrapper curlSmithMainScrapper;
-    GreenCollectionScraper greenCollectionScraper;
-    EdenScraper edenScraper;
-    GirlAndHairScraper girlAndHairScraper;
-    JaneCarterScraper janeCarterScraper;
-    MelaninHairCareScrapper melaninHairCareScrapper;
-    MielliOrganicsScrapper mielliOrganicsScrapper;
-    TheDouxScraper theDouxScraper;
-    PacificaScraper pacificaScraper;
-    NaturalHairScrapper naturalHairScrapper;
-    MauimoistureScrapper mauimoistureScrapper;
-    HoneysScrapper honeysScrapper;
-
-
+//    AlikayNaturalsScrapper alikayNaturalsScrapper;
+//    AubreyorganicsScrapper aubreyorganicsScrapper;
+//    BriogeohairScrapper briogeohairScrapper;
+//    UncleFunkyDaughterScrapper uncleFunkyDaughterScrapper;
     @Autowired
-    public ScraperRun(AlikayNaturalsScrapper alikayNaturalsScrapper,
-                      AubreyorganicsScrapper aubreyorganicsScrapper,
-                      BriogeohairScrapper briogeohairScrapper,
-                      UncleFunkyDaughterScrapper uncleFunkyDaughterScrapper,
-                      CurlSmithMainScrapper curlSmithMainScrapper,
-                      GreenCollectionScraper greenCollectionScraper,
-                      EdenScraper edenScraper,
-                      GirlAndHairScraper girlAndHairScraper,
-                      JaneCarterScraper janeCarterScraper,
-                      MelaninHairCareScrapper melaninHairCareScrapper,
-                      MielliOrganicsScrapper mielliOrganicsScrapper,
-                      TheDouxScraper theDouxScraper,
-                      PacificaScraper pacificaScraper,
-                      NaturalHairScrapper naturalHairScrapper,
-                      MauimoistureScrapper mauimoistureScrapper,
-                      HoneysScrapper honeysScrapper) {
+    CurlSmithMainScrapper curlSmithMainScrapper;
+//    GreenCollectionScraper greenCollectionScraper;
+//    EdenScraper edenScraper;
+//    GirlAndHairScraper girlAndHairScraper;
+//    JaneCarterScraper janeCarterScraper;
+//    MelaninHairCareScrapper melaninHairCareScrapper;
+//    MielliOrganicsScrapper mielliOrganicsScrapper;
+//    TheDouxScraper theDouxScraper;
+//    PacificaScraper pacificaScraper;
+//    NaturalHairScrapper naturalHairScrapper;
+//    MauimoistureScrapper mauimoistureScrapper;
+//    HoneysScrapper honeysScrapper;
 
-        this.alikayNaturalsScrapper = alikayNaturalsScrapper;
-        this.aubreyorganicsScrapper = aubreyorganicsScrapper;
-        this.briogeohairScrapper = briogeohairScrapper;
-        this.uncleFunkyDaughterScrapper = uncleFunkyDaughterScrapper;
-        this.curlSmithMainScrapper = curlSmithMainScrapper;
-        this.greenCollectionScraper = greenCollectionScraper;
-        this.edenScraper = edenScraper;
-        this.girlAndHairScraper = girlAndHairScraper;
-        this.janeCarterScraper = janeCarterScraper;
-        this.melaninHairCareScrapper = melaninHairCareScrapper;
-        this.mielliOrganicsScrapper = mielliOrganicsScrapper;
-        this.theDouxScraper = theDouxScraper;
-        this.pacificaScraper = pacificaScraper;
-        this.naturalHairScrapper = naturalHairScrapper;
-        this.mauimoistureScrapper = mauimoistureScrapper;
-        this.honeysScrapper = honeysScrapper;
-    }
+//
+//    @Autowired
+//    public ScraperRun(AlikayNaturalsScrapper alikayNaturalsScrapper,
+//                      AubreyorganicsScrapper aubreyorganicsScrapper,
+//                      BriogeohairScrapper briogeohairScrapper,
+//                      UncleFunkyDaughterScrapper uncleFunkyDaughterScrapper,
+//                      CurlSmithMainScrapper curlSmithMainScrapper,
+//                      GreenCollectionScraper greenCollectionScraper,
+//                      EdenScraper edenScraper,
+//                      GirlAndHairScraper girlAndHairScraper,
+//                      JaneCarterScraper janeCarterScraper,
+//                      MelaninHairCareScrapper melaninHairCareScrapper,
+//                      MielliOrganicsScrapper mielliOrganicsScrapper,
+//                      TheDouxScraper theDouxScraper,
+//                      PacificaScraper pacificaScraper,
+//                      NaturalHairScrapper naturalHairScrapper,
+//                      MauimoistureScrapper mauimoistureScrapper,
+//                      HoneysScrapper honeysScrapper) {
+//
+//        this.alikayNaturalsScrapper = alikayNaturalsScrapper;
+//        this.aubreyorganicsScrapper = aubreyorganicsScrapper;
+//        this.briogeohairScrapper = briogeohairScrapper;
+//        this.uncleFunkyDaughterScrapper = uncleFunkyDaughterScrapper;
+//        this.curlSmithMainScrapper = curlSmithMainScrapper;
+//        this.greenCollectionScraper = greenCollectionScraper;
+//        this.edenScraper = edenScraper;
+//        this.girlAndHairScraper = girlAndHairScraper;
+//        this.janeCarterScraper = janeCarterScraper;
+//        this.melaninHairCareScrapper = melaninHairCareScrapper;
+//        this.mielliOrganicsScrapper = mielliOrganicsScrapper;
+//        this.theDouxScraper = theDouxScraper;
+//        this.pacificaScraper = pacificaScraper;
+//        this.naturalHairScrapper = naturalHairScrapper;
+//        this.mauimoistureScrapper = mauimoistureScrapper;
+//        this.honeysScrapper = honeysScrapper;
+//    }
 
     public void run() {
 

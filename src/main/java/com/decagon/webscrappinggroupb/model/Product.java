@@ -24,6 +24,10 @@ import javax.persistence.*;
 
         private String brandName;
 
+        private String productType;
+
+        private String suitableHairType;
+
         private Long price;
 
         @Column(length = 8000)
@@ -48,6 +52,8 @@ import javax.persistence.*;
                     "description= '" + getDescription() + "'\n" +
                     "productImage= '" + getProductImage() + "'\n" +
                     "availability= '" + isAvailable()+ "'\n" +
+                    "suitableHairType= '" + getSuitableHairType()+ "'\n" +
+                    "productType= '" + getProductType()+ "'\n" +
                     "size='" + getSize() + "'\n\n";
         }
 
