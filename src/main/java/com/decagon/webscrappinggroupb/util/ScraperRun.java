@@ -25,7 +25,8 @@ public class ScraperRun {
     @Autowired
     CurlSmithMainScrapper curlSmithMainScrapper;
 //    GreenCollectionScraper greenCollectionScraper;
-//    EdenScraper edenScraper;
+    @Autowired
+    EdenScraper edenScraper;
 //    GirlAndHairScraper girlAndHairScraper;
 //    JaneCarterScraper janeCarterScraper;
 //    MelaninHairCareScrapper melaninHairCareScrapper;
@@ -85,7 +86,7 @@ public class ScraperRun {
 //			scrappers.add(aubreyorganicsScrapper);
 //			scrappers.add(briogeohairScrapper);
             scrappers.add(curlSmithMainScrapper);
-//            scrappers.add(edenScraper);
+            scrappers.add(edenScraper);
 //            scrappers.add(girlAndHairScraper);
 //            scrappers.add(greenCollectionScraper);
 //            scrappers.add(honeysScrapper);
