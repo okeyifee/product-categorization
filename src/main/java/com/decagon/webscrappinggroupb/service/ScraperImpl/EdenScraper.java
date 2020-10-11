@@ -112,6 +112,16 @@ public class EdenScraper implements Scrapper{
                     description = benefits + recommendedFor;
                 }
 
+
+                String forHairTypeCategorization = name;
+                System.out.println(forHairTypeCategorization);
+
+
+                String forProductCategorization = description;
+                System.out.println(forProductCategorization);
+
+
+
                 if (productPage.getElementsByClass("soldout").text().toLowerCase().equals("sold out")){
                     available = false;
                 } else {
