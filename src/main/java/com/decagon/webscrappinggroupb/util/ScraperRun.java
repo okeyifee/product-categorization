@@ -27,8 +27,11 @@ public class ScraperRun {
 //    GreenCollectionScraper greenCollectionScraper;
     @Autowired
     EdenScraper edenScraper;
-//    GirlAndHairScraper girlAndHairScraper;
+
+    @Autowired
+    GirlAndHairScraper girlAndHairScraper;
 //    JaneCarterScraper janeCarterScraper;
+
 //    MelaninHairCareScrapper melaninHairCareScrapper;
 //    MielliOrganicsScrapper mielliOrganicsScrapper;
 //    TheDouxScraper theDouxScraper;
@@ -85,9 +88,9 @@ public class ScraperRun {
 //			scrappers.add(alikayNaturalsScrapper);
 //			scrappers.add(aubreyorganicsScrapper);
 //			scrappers.add(briogeohairScrapper);
-            scrappers.add(curlSmithMainScrapper);
-            scrappers.add(edenScraper);
-//            scrappers.add(girlAndHairScraper);
+//            scrappers.add(curlSmithMainScrapper);
+//            scrappers.add(edenScraper);
+            scrappers.add(girlAndHairScraper);
 //            scrappers.add(greenCollectionScraper);
 //            scrappers.add(honeysScrapper);
 //            scrappers.add(janeCarterScraper);
@@ -108,6 +111,9 @@ public class ScraperRun {
                 });
             }
             executor.shutdown();
+            while (!executor.isTerminated()) {
+
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
