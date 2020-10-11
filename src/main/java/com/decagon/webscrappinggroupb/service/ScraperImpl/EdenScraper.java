@@ -68,7 +68,10 @@ public class EdenScraper implements Scrapper{
             String ingredients = "";
             String image;
             String brand;
-            boolean available = false;
+            String productType = "";
+            String suitableHairType = "";
+            boolean available;
+
             try {
                 Document productPage = Jsoup.connect(productUrl).get();
                 String benefits = "";
@@ -121,7 +124,7 @@ public class EdenScraper implements Scrapper{
                 if ((ingredients != null) && !(ingredients.isEmpty()) && !(isProductCollections(name))) {
                     double priceNum = Double.parseDouble(price.replaceAll("[$a-zA-Z ]", "")) * 100;
                     Long longPrice = (long) priceNum;
-                    Product scrapedProduct = new Product(0, productUrl, name, brand, longPrice, ingredients, description, image, size, available);
+                    Product scrapedProduct = new Product(0, productUrl, name, brand, productType, suitableHairType, longPrice, ingredients, description, image, size, available);
 
                     /**
                      * Validates if product exist in database

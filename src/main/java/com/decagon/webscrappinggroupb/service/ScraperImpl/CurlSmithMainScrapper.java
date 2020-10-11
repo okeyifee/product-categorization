@@ -85,6 +85,8 @@ public class CurlSmithMainScrapper implements Scrapper{
         String productName;
         String brand;
         String size = "";
+        String productType = "";
+        String suitableHairType = "";
         boolean available;
 
         for (String url : curlSmithProductUrls) {
@@ -112,6 +114,9 @@ public class CurlSmithMainScrapper implements Scrapper{
                     image = "https://" + curlSmithProductPage.getElementsByClass("fancybox").attr("href");
                     ingredients = curlSmithProductPage.select(".content .ingredient-image .imagetable").text();
 
+                    String hairType = curlSmithProductPage.getElementsByClass("mobiletitle").text();
+                    System.out.println(hairType);
+
 
                     if (curlSmithProductPage.getElementsByClass("text").text().toLowerCase().equals("add to cart")){
                         available = true;
@@ -129,7 +134,7 @@ public class CurlSmithMainScrapper implements Scrapper{
                     if ((ingredients != null) && !(ingredients.isEmpty()) && !isProductCollections(productName)) {
                         double priceNum = Double.parseDouble(price.replaceAll("[\\$a-zA-Z ]", "")) * 100;
                         Long longPrice = (long) priceNum;
-                        Product scrapedProduct = new Product(0, productLink, productName, brand, longPrice, ingredients, description, image, size, available);
+                        Product scrapedProduct = new Product(0, productLink, productName, brand, productType, suitableHairType, longPrice, ingredients, description, image, size, available);
 
                         /**
                          * Validates if product exist in database
