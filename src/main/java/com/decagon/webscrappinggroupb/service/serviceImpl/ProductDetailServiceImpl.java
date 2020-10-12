@@ -78,7 +78,7 @@ public class ProductDetailServiceImpl implements ProductDetailService {
         for (String key : keys) {
             String[] types = HAIR_TYPES.get(key).split(",");
             for (String type : types) {
-                if (description.contains(type)) {
+                if (description.contains(type.trim())) {
                     answer += key + ", ";
                     break;
                 }
