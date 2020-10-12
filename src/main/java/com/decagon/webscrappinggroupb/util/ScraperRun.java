@@ -38,12 +38,17 @@ public class ScraperRun {
     @Autowired
     JaneCarterScraper janeCarterScraper;
 
-//    MelaninHairCareScrapper melaninHairCareScrapper;
-//    MielliOrganicsScrapper mielliOrganicsScrapper;
+    @Autowired
+    MelaninHairCareScrapper melaninHairCareScrapper;
+
+    //    MielliOrganicsScrapper mielliOrganicsScrapper;
 //    TheDouxScraper theDouxScraper;
 //    PacificaScraper pacificaScraper;
 //    NaturalHairScrapper naturalHairScrapper;
-//    MauimoistureScrapper mauimoistureScrapper;
+
+    @Autowired
+    MauimoistureScrapper mauimoistureScrapper;
+
     @Autowired
     HoneysScrapper honeysScrapper;
 
@@ -104,11 +109,11 @@ public class ScraperRun {
 //            scrappers.add(girlAndHairScraper);
 //            scrappers.add(greenCollectionScraper);
 //            scrappers.add(honeysScrapper);
-            scrappers.add(janeCarterScraper);
-
-
+//            scrappers.add(janeCarterScraper);
 //            scrappers.add(mauimoistureScrapper);
-//            scrappers.add(melaninHairCareScrapper);
+            scrappers.add(melaninHairCareScrapper);
+
+
 //            scrappers.add(mielliOrganicsScrapper);
 //            scrappers.add(naturalHairScrapper);
 //            scrappers.add(pacificaScraper);
