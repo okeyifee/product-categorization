@@ -66,8 +66,8 @@ public class JaneCarterScraper implements Scrapper{
             String ingredients;
             String image;
             String brand;
-            String productType = "";
-            String suitableHairType = "";
+            String productType;
+            String suitableHairType;
             boolean available;
 
             try {
@@ -133,8 +133,14 @@ public class JaneCarterScraper implements Scrapper{
                     description = fullDescription;
                 }
 
-                productType = "";
-                suitableHairType = "";
+
+
+
+                productType = name;
+                suitableHairType = description;
+
+
+
 
                 /**
                  * Validates product to be stored in database
