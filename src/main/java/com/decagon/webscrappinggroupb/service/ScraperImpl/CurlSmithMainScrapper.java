@@ -2,6 +2,7 @@ package com.decagon.webscrappinggroupb.service.ScraperImpl;
 
 import com.decagon.webscrappinggroupb.model.Product;
 import com.decagon.webscrappinggroupb.service.ProductService;
+import com.decagon.webscrappinggroupb.service.ProductTypeService;
 import com.decagon.webscrappinggroupb.util.Scrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,10 +28,13 @@ public class CurlSmithMainScrapper implements Scrapper{
     private final List<String> curlSmithProductUrls = new ArrayList<>();
 
     ProductService productService;
+    ProductTypeService productTypeService;
 
     @Autowired
-    public CurlSmithMainScrapper(ProductService productService) {
+    public CurlSmithMainScrapper(ProductService productService,
+                                 ProductTypeService productTypeService) {
         this.productService = productService;
+        this.productTypeService = productTypeService;
     }
 
     private static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4999.61 Safari/537.36";
@@ -115,7 +119,9 @@ public class CurlSmithMainScrapper implements Scrapper{
                     ingredients = curlSmithProductPage.select(".content .ingredient-image .imagetable").text();
 
                     String hairType = curlSmithProductPage.getElementsByClass("mobiletitle").text();
-                    System.out.println(hairType);
+//                    System.out.println("hairType: " + hairType);
+
+                    productType = productTypeService.getProductType(description);
 
 
                     if (curlSmithProductPage.getElementsByClass("text").text().toLowerCase().equals("add to cart")){
