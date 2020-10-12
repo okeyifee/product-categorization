@@ -2,6 +2,7 @@ package com.decagon.webscrappinggroupb.service.ScraperImpl;
 
 import com.decagon.webscrappinggroupb.model.Product;
 import com.decagon.webscrappinggroupb.service.ProductService;
+import com.decagon.webscrappinggroupb.service.ProductDetailService;
 import com.decagon.webscrappinggroupb.util.Scrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,6 +23,8 @@ import java.util.List;
         private final Logger logger = LoggerFactory.getLogger(GirlAndHairScraper.class);
 
         ProductService productService;
+        @Autowired
+        ProductDetailService productDetailService;
 
         @Autowired
         public GirlAndHairScraper(ProductService productService) {
@@ -109,13 +112,17 @@ import java.util.List;
                     }
 
 
-                    String forHairTypeCategorization = description;
-                    System.out.println(forHairTypeCategorization);
+//                    String forHairTypeCategorization = description;
+//                    System.out.println("forHairTypeCategorization: " + forHairTypeCategorization);
 
 
-                    String forProductCategorization = description;
-                    System.out.println(forProductCategorization);
+//                    String forProductCategorization = description;
+//                    System.out.println("forProductCategorization: " + forProductCategorization);
+                    productType = productDetailService.getProductType(description);
+                    System.out.println("Description: " + description);
 
+                    suitableHairType = productDetailService.getSuitableHairType(description);
+                    System.out.println("Suitable hair type: " + productDetailService.getSuitableHairType(description));
 
 
 

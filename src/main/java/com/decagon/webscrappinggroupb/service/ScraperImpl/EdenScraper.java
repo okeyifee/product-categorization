@@ -1,6 +1,7 @@
 package com.decagon.webscrappinggroupb.service.ScraperImpl;
 
 import com.decagon.webscrappinggroupb.model.Product;
+import com.decagon.webscrappinggroupb.service.ProductDetailService;
 import com.decagon.webscrappinggroupb.service.ProductService;
 import com.decagon.webscrappinggroupb.util.Scrapper;
 import org.jsoup.Jsoup;
@@ -22,10 +23,13 @@ public class EdenScraper implements Scrapper{
     private final Logger logger = LoggerFactory.getLogger(EdenScraper.class);
 
     ProductService productService;
+    ProductDetailService productDetailService;
 
     @Autowired
-    public EdenScraper(ProductService productService) {
+    public EdenScraper(ProductService productService,
+                       ProductDetailService productDetailService) {
         this.productService = productService;
+        this.productDetailService = productDetailService;
     }
 
     List<String> productUrls = new ArrayList<>();
@@ -109,17 +113,19 @@ public class EdenScraper implements Scrapper{
                 }
 
                 if ((benefits + recommendedFor).length() > 0) {
-                    description = benefits + recommendedFor;
+                    description = benefits + " " + recommendedFor;
                 }
 
 
                 String forHairTypeCategorization = name;
-                System.out.println(forHairTypeCategorization);
+                System.out.println("forHairTypeCategorization: " + forHairTypeCategorization);
+                productType = productDetailService.getSuitableHairType(forHairTypeCategorization);
 
 
                 String forProductCategorization = description;
-                System.out.println(forProductCategorization);
-
+                System.out.println("forProductCategorization: " + forProductCategorization);
+                suitableHairType = productDetailService.getProductType(forProductCategorization);
+//                System.out.println(productUrl);
 
 
                 if (productPage.getElementsByClass("soldout").text().toLowerCase().equals("sold out")){
