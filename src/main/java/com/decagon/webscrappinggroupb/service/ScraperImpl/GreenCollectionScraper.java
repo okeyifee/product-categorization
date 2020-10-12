@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.decagon.webscrappinggroupb.model.Product;
+import com.decagon.webscrappinggroupb.service.ProductDetailService;
 import com.decagon.webscrappinggroupb.service.ProductService;
 import com.decagon.webscrappinggroupb.util.Scrapper;
 import org.jsoup.Jsoup;
@@ -22,10 +23,13 @@ public class GreenCollectionScraper implements Scrapper{
     private final Logger logger = LoggerFactory.getLogger(GreenCollectionScraper.class);
 
     ProductService productService;
+    ProductDetailService productDetailService;
 
     @Autowired
-    public GreenCollectionScraper(ProductService productService) {
+    public GreenCollectionScraper(ProductService productService,
+                                  ProductDetailService productDetailService) {
         this.productService = productService;
+        this.productDetailService = productDetailService;
     }
 
     final String webUrl = "https://curls.biz/";
@@ -119,9 +123,10 @@ public class GreenCollectionScraper implements Scrapper{
 
 
             String forProductDetails = doc.getElementsByClass("posted_in").text() + " " + doc.getElementsByClass("tagged_as").text();
+            productType = productDetailService.getProductType(forProductDetails);
 
             String forHairDetails = doc.select("div.post-content.woocommerce-product-details__short-description > p > a > .alignnone ").attr("alt");
-
+            suitableHairType = productDetailService.getSuitableHairType(forHairDetails);
 
 
             /**
