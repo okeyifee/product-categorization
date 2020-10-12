@@ -4,6 +4,7 @@ import com.decagon.webscrappinggroupb.service.ScraperImpl.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.net.UnknownHostException;
@@ -33,7 +34,9 @@ public class ScraperRun {
 
     @Autowired
     GirlAndHairScraper girlAndHairScraper;
-//    JaneCarterScraper janeCarterScraper;
+
+    @Autowired
+    JaneCarterScraper janeCarterScraper;
 
 //    MelaninHairCareScrapper melaninHairCareScrapper;
 //    MielliOrganicsScrapper mielliOrganicsScrapper;
@@ -41,7 +44,9 @@ public class ScraperRun {
 //    PacificaScraper pacificaScraper;
 //    NaturalHairScrapper naturalHairScrapper;
 //    MauimoistureScrapper mauimoistureScrapper;
-//    HoneysScrapper honeysScrapper;
+    @Autowired
+    HoneysScrapper honeysScrapper;
+
 
 //
 //    @Autowired
@@ -80,6 +85,7 @@ public class ScraperRun {
 //        this.honeysScrapper = honeysScrapper;
 //    }
 
+    @Scheduled
     public void run() {
 
         int MYTHREADS = 10;
@@ -91,12 +97,16 @@ public class ScraperRun {
 //			scrappers.add(alikayNaturalsScrapper);
 //			scrappers.add(aubreyorganicsScrapper);
 //			scrappers.add(briogeohairScrapper);
+
+
 //            scrappers.add(curlSmithMainScrapper);
 //            scrappers.add(edenScraper);
 //            scrappers.add(girlAndHairScraper);
-            scrappers.add(greenCollectionScraper);
-//            scrappers.add(honeysScrapper);
+//            scrappers.add(greenCollectionScraper);
+            scrappers.add(honeysScrapper);
 //            scrappers.add(janeCarterScraper);
+
+
 //            scrappers.add(mauimoistureScrapper);
 //            scrappers.add(melaninHairCareScrapper);
 //            scrappers.add(mielliOrganicsScrapper);
