@@ -1,13 +1,12 @@
 package com.decagon.webscrappinggroupb.service.serviceImpl;
 
-import com.decagon.webscrappinggroupb.service.ProductTypeService;
+import com.decagon.webscrappinggroupb.service.ProductDetailService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
-public class ProductTypeServiceImpl implements ProductTypeService {
+public class ProductDetailServiceImpl implements ProductDetailService {
     private final List<String> PRODUCT_TYPES = new ArrayList<>(List.of(
             "deep conditioner",
             "leave-in conditioner",
@@ -34,6 +33,20 @@ public class ProductTypeServiceImpl implements ProductTypeService {
             "balm"
     ));
 
+    private final Map<String, String> HAIR_TYPES = new HashMap<>(){{
+        put("1", "straight, sleek, stringy, limp, unruly");
+        put("2a", "tousled, large waves, tangled, grubby, messy, sloppy");
+        put("2b", "wavy, curly, flaxen, kinky, frizzy");
+        put("2c", "wavy and curly");
+        put("3a", "large loose curls");
+        put("3b", "springy ringlets, coil, spiral, hairspring, flexural");
+        put("3c", "tight ringlets, corkscrew, ringlets");
+        put("4a", "s pattern, tight coils");
+        put("4b", "tight coils");
+        put("4c", "zig zag pattern, tightest coils");
+
+    }};
+
     @Override
     public String getProductType(String description) {
         description = description.toLowerCase();
@@ -53,6 +66,26 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         }
         if (answer.isEmpty()) {
             return "N/A";
+        }
+        return answer.substring(0,answer.lastIndexOf(",")).trim();
+    }
+
+    @Override
+    public String getSuitableHairType(String description) {
+        description = description.toLowerCase();
+        String answer = "";
+        Set<String> keys = HAIR_TYPES.keySet();
+        for (String key : keys) {
+            String[] types = HAIR_TYPES.get(key).split(",");
+            for (String type : types) {
+                if (description.contains(type)) {
+                    answer += key + ", ";
+                    break;
+                }
+            }
+        };
+        if (answer.isEmpty()) {
+            return "1";
         }
         return answer.substring(0,answer.lastIndexOf(",")).trim();
     }
