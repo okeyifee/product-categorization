@@ -2,7 +2,7 @@ package com.decagon.webscrappinggroupb.service.ScraperImpl;
 
 import com.decagon.webscrappinggroupb.model.Product;
 import com.decagon.webscrappinggroupb.service.ProductService;
-import com.decagon.webscrappinggroupb.service.ProductTypeService;
+import com.decagon.webscrappinggroupb.service.ProductDetailService;
 import com.decagon.webscrappinggroupb.util.Scrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,11 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.io.IOException;
-import java.net.ConnectException;
-import java.net.UnknownHostException;
-import java.rmi.ConnectIOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +24,13 @@ public class CurlSmithMainScrapper implements Scrapper{
     private final List<String> curlSmithProductUrls = new ArrayList<>();
 
     ProductService productService;
-    ProductTypeService productTypeService;
+    ProductDetailService productDetailService;
 
     @Autowired
     public CurlSmithMainScrapper(ProductService productService,
-                                 ProductTypeService productTypeService) {
+                                 ProductDetailService productDetailService) {
         this.productService = productService;
-        this.productTypeService = productTypeService;
+        this.productDetailService = productDetailService;
     }
 
     private static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4999.61 Safari/537.36";
@@ -121,7 +117,8 @@ public class CurlSmithMainScrapper implements Scrapper{
                     String hairType = curlSmithProductPage.getElementsByClass("mobiletitle").text();
 //                    System.out.println("hairType: " + hairType);
 
-                    productType = productTypeService.getProductType(description);
+                    productType = productDetailService.getProductType(description);
+                    suitableHairType = productDetailService.getSuitableHairType(description);
 
 
                     if (curlSmithProductPage.getElementsByClass("text").text().toLowerCase().equals("add to cart")){
