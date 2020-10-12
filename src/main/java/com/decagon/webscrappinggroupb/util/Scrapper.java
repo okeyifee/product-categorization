@@ -11,6 +11,6 @@ public interface Scrapper{
     void scrape();
 
     default boolean isProductCollections(String name) {
-        return name.toLowerCase().matches(".*(ki(t|ts)|collectio(n|ns)|pack|trio|-trio).*");
+        return name.toLowerCase().matches(".*(ki(t|ts)|collectio(n|ns)|pack|trio|-trio|body lotion|Gift Card).*");
     }
 }
